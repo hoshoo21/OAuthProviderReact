@@ -1,13 +1,23 @@
+import { Routes, Route } from 'react-router-dom'
 import './app.css'
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import GoogeLoginButton from './component/GoogleLoginButton';
+import LoginPage from './LoginPage'
+import Profile from './Profile'
+import Home from './Home'
+import Navbar from './component/Navbar'
 export function App() {
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-  console.log(clientId);
-  return (
-    <GoogleOAuthProvider clientId={clientId}>
-        <GoogeLoginButton />
-    </GoogleOAuthProvider>
+
+
+  return(
+    <>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<LoginPage />}/>
+          <Route path="/home" element={<Home />}/>
+ 
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+
+    </>
     
-  )
+    )
 }
